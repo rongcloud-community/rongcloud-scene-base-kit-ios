@@ -31,13 +31,18 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '11.0'
 
-  s.source_files = 'RCSceneBaseKit/Classes/**/*'
+  s.source_files = 'RCSceneBaseKit/Classes/*.h'
   
-  # s.resource_bundles = {
-  #   'RCSceneBaseKit' => ['RCSceneBaseKit/Assets/**/*']
-  # }
+  s.subspec 'UIKit' do |ss|
+    ss.source_files = 'RCSceneBaseKit/Classes/UIKit/**/*'
+  end
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.subspec 'FoundationKit' do |ss|
+    ss.source_files = 'RCSceneBaseKit/Classes/FoundationKit/**/*'
+  end
+
+  s.subspec 'Utils' do |ss|
+    ss.source_files = 'RCSceneBaseKit/Classes/Utils/**/*'
+  end
+   
 end

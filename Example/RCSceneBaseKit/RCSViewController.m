@@ -7,6 +7,8 @@
 //
 
 #import "RCSViewController.h"
+#import <RCSBaseKit.h>
+#import "RCSBaseConstant.h"
 
 @interface RCSViewController ()
 
@@ -18,6 +20,17 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [RCSUIAdaptor designWithSize:CGSizeMake(kScreen_WIDTH, kScreen_HEIGHT)];
+    
+    [UIImage rcs_imageWithColor:[UIColor redColor]];
+    
+    [[RCSCountdown new] startCountdownWithTime:60 countDownCallBack:^(int timeStr) {
+        NSLog(@"time: %d", timeStr);
+    } countDownFinishCallBack:^{
+        NSLog(@"coutdown finished");
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning

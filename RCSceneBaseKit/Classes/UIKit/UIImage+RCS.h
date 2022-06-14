@@ -11,10 +11,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (RCS)
 
-/// 加载bundle资源图片
+/// 加载bundle资源图片，默认bundleName就是podName
 /// @param imageName 图片名
 /// @param bundleName bundle名
 + (UIImage *)rcs_imageNamed:(NSString *)imageName
+                     bundle:(NSString *)bundleName;
+
+/// 加载bundle资源图片
+/// @param imageName 图片名
+/// @param podName pod名
+/// @param bundleName bundle名
++ (UIImage *)rcs_imageNamed:(NSString *)imageName
+                    podName:(NSString *)podName
                      bundle:(NSString *)bundleName;
 
 /// 根据颜色生产图片

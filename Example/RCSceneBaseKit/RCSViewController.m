@@ -25,11 +25,11 @@
     
     [UIImage rcs_imageWithColor:[UIColor redColor]];
     
-    [[RCSCountdown new] startCountdownWithTime:60 countDownCallBack:^(int timeStr) {
-        NSLog(@"time: %d", timeStr);
-    } countDownFinishCallBack:^{
-        NSLog(@"coutdown finished");
-    }];
+//    [[RCSCountdown new] startCountdownWithTime:60 countdownCallBack:^(int timeStr) {
+//        NSLog(@"time: %d", timeStr);
+//    } countdownFinishCallBack:^{
+//        NSLog(@"coutdown finished");
+//    }];
     
 }
 

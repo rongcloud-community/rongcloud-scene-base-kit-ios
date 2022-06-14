@@ -11,13 +11,24 @@
 
 + (UIImage *)rcs_imageNamed:(NSString *)imageName
                      bundle:(NSString *)bundleName {
+    return [self rcs_imageNamed:imageName podName:bundleName bundle:bundleName];
+}
+
++ (UIImage *)rcs_imageNamed:(NSString *)imageName
+                    podName:(NSString *)podName
+                     bundle:(NSString *)bundleName {
     if (bundleName.length <= 0 || imageName.length <= 0) {
         return nil;
     }
     
     NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:bundleName withExtension:@"bundle"];
     if (!bundleURL) {
-        return nil;
+        // use_frameworks
+        bundleURL = [[NSBundle mainBundle] URLForResource:@"Frameworks" withExtension:nil];
+        bundleURL = [bundleURL URLByAppendingPathComponent:podName];
+        bundleURL = [bundleURL URLByAppendingPathExtension:@"framework"];
+        NSBundle *associateBundle = [NSBundle bundleWithURL:bundleURL];
+        bundleURL = [associateBundle URLForResource:bundleName withExtension:@"bundle"];
     }
     
     NSBundle *imageBundle = [NSBundle bundleWithURL:bundleURL];

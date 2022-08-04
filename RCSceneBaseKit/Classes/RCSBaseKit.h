@@ -9,9 +9,12 @@
 #define RCSBaseKit_h
 
 #import "NSBundle+RCS.h"
+#import "NSData+RCS.h"
+
 #import "UIColor+RCS.h"
 #import "UIView+RCSSizes.h"
 #import "UIImage+RCS.h"
+
 #import "RCSUIAdaptor.h"
 #import "RCSCountdown.h"
 #import "RCSBaseConstant.h"
